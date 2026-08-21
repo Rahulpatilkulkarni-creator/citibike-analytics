@@ -1,0 +1,13 @@
+Loaded 183 days of data.
+
+=== Temperature Correlation ===
+Member rides vs temp:  r = 0.804  (p = 0.00000)
+Casual rides vs temp:  r = 0.843  (p = 0.00000)
+
+=== Precipitation Correlation ===
+Member rides vs rain:  r = -0.348  (p = 0.00000)
+Casual rides vs rain:  r = -0.251  (p = 0.00061)
+
+=== Rainy Day (>5mm) vs Dry Day Averages ===
+Member rides  - dry: 88949  |  rainy: 62476  |  drop: 29.8%
+Casual rides  - dry: 20481  |  rainy: 11678  |  drop: 43.0%
