@@ -22,8 +22,8 @@ else:
     db_user = os.getenv('DB_USER')
     db_password = quote_plus(os.getenv('DB_PASSWORD'))
 
-DB_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}?sslmode=require"engine = create_engine(DB_URL)
-
+DB_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}?sslmode=require"
+engine = create_engine(DB_URL)
 @st.cache_data(ttl=3600)
 def run_query(query):
     return pd.read_sql(query, engine)
