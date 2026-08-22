@@ -2,7 +2,7 @@
 
 A PostgreSQL + Python deep dive into six months of NYC Citi Bike trips (Jan–Jun 2024, ~18.7M rides). Rather than another "rides per month" dashboard, this project looks at how the station network actually behaves over time — which stations stick around, which ones need constant rebalancing, and how weather changes rider behavior.
 
-**Live dashboard:** [add your Streamlit Cloud link here once deployed]
+**Live dashboard:** [citibike-analytics.streamlit.app](https://citibike-analytics.streamlit.app/)
 
 ---
 
@@ -126,6 +126,9 @@ python load_weather.py
 # run the dashboard
 streamlit run dashboard.py
 ```
+## A note on how the live dashboard is deployed
+
+The live dashboard doesn't query the full 18.7M-row `rides` table directly — it reads from three small pre-aggregated tables (`cohort_summary`, `station_summary`, `daily_summary`), computed once locally against the full dataset and pushed to a free-tier Neon Postgres instance. Combined, those three tables are under 300KB, well within Neon's free-tier storage limit, while still representing the complete 6-month analysis, not a sample. `dashboard.py` (full local version, queries raw data) and `dashboard2.py` (deployed version, queries the summary tables) are both in this repo — `dashboard2.py` is what's live at the link above.
 
 ## Limitations, honestly
 

@@ -1,3 +1,4 @@
+.env.neon
 venv/
 .env
 __pycache__/
